@@ -1,0 +1,317 @@
+{
+  "burgers": [
+    {
+      "category": "Burger",
+      "name": "BYO Burger",
+      "top_bun": "Lettuce, tomato, onion",
+      "build_order": [
+        "Patty",
+        "chosen sauce",
+        "chosen cheese",
+        "chosen toppings",
+        "**bacon if added**"
+      ],
+      "garnish": null
+    },
+    {
+      "category": "Burger",
+      "name": "Waska Burger",
+      "top_bun": "Lettuce, tomato, onion",
+      "build_order": [
+        "Patty",
+        "Waska whiskey sauce",
+        "Swiss",
+        "Fried onions",
+        "**Bacon**"
+      ],
+      "garnish": null
+    },
+    {
+      "category": "Burger",
+      "name": "Black\u202f&\u202fBleu",
+      "top_bun": "*(none)*",
+      "build_order": [
+        "Patty **blackened on grill**",
+        "Bleu\u2011cheese crumbles"
+      ],
+      "garnish": null
+    },
+    {
+      "category": "Burger",
+      "name": "Barbacoa Burger",
+      "top_bun": "Lettuce, tomato, onion",
+      "build_order": [
+        "Patty",
+        "Cheddar",
+        "Barbacoa beef",
+        "Fried onions"
+      ],
+      "garnish": null
+    },
+    {
+      "category": "Burger",
+      "name": "A.M. Burger",
+      "top_bun": "Lettuce, tomato, onion",
+      "build_order": [
+        "Patty",
+        "Lakeside sauce",
+        "Cheddar",
+        "Fried egg",
+        "**Bacon**"
+      ],
+      "garnish": null
+    },
+    {
+      "category": "Burger",
+      "name": "Bloody\u202fMary",
+      "top_bun": "Lettuce, tomato, onion",
+      "build_order": [
+        "Patty",
+        "Vodka\u2011tomato sauce",
+        "Cheddar",
+        "Fried salami"
+      ],
+      "garnish": null
+    },
+    {
+      "category": "Burger",
+      "name": "High\u202fTide\u202fTurkey",
+      "top_bun": "Lettuce, tomato, onion",
+      "build_order": [
+        "Turkey patty",
+        "Craisin aioli",
+        "Swiss"
+      ],
+      "garnish": null
+    },
+    {
+      "category": "Burger",
+      "name": "Walleye Sandwich",
+      "top_bun": "Hoagie \u2192 \u2014 \u2192 \u2014 \u2192 Lettuce & tomato \u2192 Fried/Battered walleye \u2192 Hoagie",
+      "build_order": [
+        "3\u202fpickles\u202f\u2022 Lemon wedge\u202f\u2022 (Tartar on side)"
+      ],
+      "garnish": ""
+    },
+    {
+      "category": "Burger",
+      "name": "Buoy\u202fChicken",
+      "top_bun": "Sourdough \u2192 Chipotle sauce \u2192 Cheddar \u2192 Roasted peppers \u2192 **Bacon** \u2192 Grilled chicken \u2192 Sourdough",
+      "build_order": [
+        "3\u202fpickles"
+      ],
+      "garnish": ""
+    },
+    {
+      "category": "Burger",
+      "name": "Chicken\u202fParmesan",
+      "top_bun": "Ciabatta \u2192 Marinara \u2192 Mozzarella \u2192 **Parmesan sprinkle** \u2192 Crispy chicken \u2192 Ciabatta",
+      "build_order": [
+        "3\u202fpickles"
+      ],
+      "garnish": ""
+    },
+    {
+      "category": "Burger",
+      "name": "Fish\u202f&\u202fChips",
+      "top_bun": "Beer\u2011battered cod + Fries",
+      "build_order": [
+        "Tartar"
+      ],
+      "garnish": "Lemon wedge"
+    },
+    {
+      "category": "Burger",
+      "name": "Chicken\u202fStrips",
+      "top_bun": "Crispy chicken tenders + Fries",
+      "build_order": [
+        "Guest\u2011choice"
+      ],
+      "garnish": null
+    },
+    {
+      "category": "Burger",
+      "name": "Coconut\u202fShrimp",
+      "top_bun": "Coconut\u2011battered shrimp + Fries",
+      "build_order": [
+        "Chili\u2011lime aioli"
+      ],
+      "garnish": "Lemon wedge"
+    },
+    {
+      "category": "Burger",
+      "name": "Redhook\u00a0Ale\u202fShrimp",
+      "top_bun": "Ale\u2011battered shrimp + Fries",
+      "build_order": [
+        "Tartar\u202for\u202fCocktail"
+      ],
+      "garnish": "Lemon wedge"
+    },
+    {
+      "category": "Burger",
+      "name": "Onion\u202fRing\u202fBasket",
+      "top_bun": "Breaded onion rings",
+      "build_order": [
+        "Guest\u2011choice"
+      ],
+      "garnish": null
+    },
+    {
+      "category": "Burger",
+      "name": "French\u202fFry\u202fBasket",
+      "top_bun": "Fries",
+      "build_order": [
+        "Guest\u2011choice"
+      ],
+      "garnish": null
+    },
+    {
+      "category": "Burger",
+      "name": "Walleye\u202fFingers",
+      "top_bun": "Battered walleye strips",
+      "build_order": [
+        "Tartar"
+      ],
+      "garnish": "Lemon wedge"
+    },
+    {
+      "category": "Burger",
+      "name": "Chicken\u202fWings",
+      "top_bun": "8 wings (Hot\u202fHoney / BBQ / Buffalo / Dry)",
+      "build_order": [
+        "Ranch\u202for\u202fBleu"
+      ],
+      "garnish": null
+    },
+    {
+      "category": "Burger",
+      "name": "Chicken\u202fParmesan",
+      "top_bun": "Ciabatta\u202f(bot) \u2192 **Crispy chicken breast** \u2192 **Marinara** \u2192 **Mozzarella** \u2192 **Parmesan sprinkle** \u2192 Ciabatta\u202f(top)",
+      "build_order": [
+        "3\u202fpickles"
+      ],
+      "garnish": ""
+    }
+  ],
+  "sandwiches": [
+    {
+      "category": "Sandwich",
+      "name": "Classic\u202fReuben",
+      "build_order": [
+        "Rye",
+        "Thousand\u202fIsland",
+        "Swiss",
+        "Sauerkraut",
+        "Corned beef",
+        "Rye"
+      ],
+      "garnish": "3\u202fpickles"
+    },
+    {
+      "category": "Sandwich",
+      "name": "Prime\u202fRib\u202fDip",
+      "build_order": [
+        "Hoagie",
+        "\u2014",
+        "Swiss",
+        "Saut\u00e9ed mushrooms & onions",
+        "Prime rib",
+        "Hoagie"
+      ],
+      "garnish": "3\u202fpickles\u202f\u2022 Au\u202fjus cup"
+    },
+    {
+      "category": "Sandwich",
+      "name": "Walleye Sandwich",
+      "build_order": [
+        "Hoagie",
+        "\u2014",
+        "\u2014",
+        "Lettuce & tomato",
+        "Fried/Battered walleye",
+        "Hoagie"
+      ],
+      "garnish": "3\u202fpickles\u202f\u2022 Lemon wedge\u202f\u2022 (Tartar on side)"
+    },
+    {
+      "category": "Sandwich",
+      "name": "White\u202fCap Patty\u202fMelt",
+      "build_order": [
+        "Rye",
+        "Lakeside sauce",
+        "Swiss\u202f+\u202fAmerican",
+        "Fried onions",
+        "Beef patty",
+        "Rye"
+      ],
+      "garnish": "3\u202fpickles"
+    },
+    {
+      "category": "Sandwich",
+      "name": "Buoy\u202fChicken",
+      "build_order": [
+        "Sourdough",
+        "Chipotle sauce",
+        "Cheddar",
+        "Roasted peppers",
+        "**Bacon**",
+        "Grilled chicken",
+        "Sourdough"
+      ],
+      "garnish": "3\u202fpickles"
+    },
+    {
+      "category": "Sandwich",
+      "name": "Tuna\u202fSteak",
+      "build_order": [
+        "Kaiser",
+        "Asian sauce",
+        "\u2014",
+        "Asian slaw",
+        "Crispy wontons",
+        "Tuna steak **(sesame\u2011oil drizzle)**",
+        "Kaiser"
+      ],
+      "garnish": "3\u202fpickles\u202f\u2022 Lemon wedge"
+    },
+    {
+      "category": "Sandwich",
+      "name": "Chicken\u202fParmesan",
+      "build_order": [
+        "Ciabatta",
+        "Marinara",
+        "Mozzarella",
+        "**Parmesan sprinkle**",
+        "Crispy chicken",
+        "Ciabatta"
+      ],
+      "garnish": "3\u202fpickles"
+    },
+    {
+      "category": "Sandwich",
+      "name": "Bacon\u202fJam Pulled\u202fPork",
+      "build_order": [
+        "Ciabatta",
+        "Bacon\u2011pepper jam",
+        "\u2014",
+        "Crispy onions",
+        "Pulled pork",
+        "Ciabatta"
+      ],
+      "garnish": "3\u202fpickles"
+    },
+    {
+      "category": "Sandwich",
+      "name": "Turkey\u202fFresco",
+      "build_order": [
+        "Ciabatta",
+        "**Smoked turkey**",
+        "**Artichoke\u2011spinach cream**",
+        "**Parmesan**",
+        "Ciabatta"
+      ],
+      "garnish": "3\u202fpickles"
+    }
+  ],
+  "baskets": []
+}

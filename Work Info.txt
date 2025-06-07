@@ -1,0 +1,256 @@
+Here are markdown versions of each of the photographed documents:
+
+---
+
+### 🧼 `Daily Closing Cleaning List`
+
+```markdown
+# Daily Closing Cleaning List
+
+| Task | Date | Initial | Date | Initial | Date | Initial | Date | Initial |
+|------|------|---------|------|---------|------|---------|------|---------|
+| Clean grill with brush |
+| Clean grease trap and empty |
+| Clean all surfaces of grill |
+| Clean hot well, turn power off |
+| Restock all food |
+| Clean sauté grates every night |
+| Clean and sanitize all work stations |
+| Clean microwave and walls in hand sink area |
+| Clean and polish back splash if sauté station |
+| Put all cutting boards through dishwasher |
+| Clean pizza over and trays |
+| Clean and sanitize prep table |
+| Organize prep area |
+| Filter fryers every night |
+| Change oil in fryer when needed |
+| Clean flat top and empty grease traps |
+| Clean fryer baskets and holders |
+| Clean and polish hoods |
+| Bring all trash out |
+| Bring all recycling out |
+| Sweep and mop dry storage |
+| Sweep and mop cooler |
+| Sweep and mop kitchen |
+| Turn off both hood systems |
+| **Final walk-through to ensure all equipment & hoods are off** |
+
+## Weekly Special Tasks
+- Soak hood vents overnight on Sundays  
+- Sweep and mop behind all cooking equipment on Mondays  
+- Sweep and mop behind coolers on Tuesdays  
+- Clean pizza oven every Monday AM  
+- Soak all sauté grates overnight on Sundays with degreaser  
+```
+
+---
+
+### 🔥 `Grill/Wheel Station Cleaning`
+
+```markdown
+# Grill/Wheel Station — Day & Night Shift Cleaning
+
+## Station Tasks
+- Clean grill  
+- Empty and clean grease traps  
+- Clean all grill surfaces including the sides  
+- Hot wells emptied and cleaned  
+- Clean all surface areas, including pickup windows  
+- Restock all food  
+- Polish front of hoods  
+- Put cutting board through dishwasher  
+
+## End of Day/Night Shift
+- Empty all garbage cans  
+- Sweep and mop your station  
+- Clean and organize your workstation  
+- Take out all cardboard  
+- Turn off hood system at end of night  
+- Sweep and mop dry storage  
+
+## Weekly
+- Soak hood vents overnight on Sundays  
+- Pull out hot equipment on Mondays, sweep and mop  
+- Pull out all reach-in coolers on Tuesdays, sweep and mop  
+- Clean pizza oven every Monday AM  
+- Clean ovens Monday PM  
+```
+
+---
+
+### 🔥 `Sauté Station Cleaning`
+
+```markdown
+# Sauté Station — Day & Night Shift Cleaning
+
+## Station Tasks
+- Clean sauté grates every night, soak overnight on Sundays  
+- Clean all surface areas, including cooler gaskets  
+- Clean microwave, and all walls in work area  
+- Clean back splash of sauté area  
+- Restock all food  
+- Polish front of hoods  
+- Put cutting board through dishwasher  
+
+## End of Day/Night Shift
+- Empty all garbage cans  
+- Sweep and mop your station  
+- Clean and organize your workstation  
+- Take out all cardboard  
+- Turn off hood system at end of night  
+- Sweep and mop dry storage  
+
+## Weekly
+- Soak hood vents overnight on Sundays  
+- Pull out hot equipment on Mondays, sweep and mop  
+- Pull out all reach-in coolers on Tuesdays, sweep and mop  
+- Clean pizza oven every Monday AM  
+- Clean ovens Monday PM  
+```
+
+---
+
+### 🍽️ `Portion Chart`
+
+```markdown
+# Portion Chart
+
+- 10 oz fettuccine, spaghetti, udon, penne  
+- 8 oz gnocchi  
+- 6 oz turkey and corn beef  
+- 10 oz cheese curds  
+- 10 oz boneless wings  
+- 8 count bone-in wings  
+- 12 each naan bread for artichoke spinach dip  
+- 5 each caprese bruschetta appetizer  
+- 6 oz sirloin on flatbread  
+- 8 oz sirloin on brown butter sirloin appetizer  
+- 6 oz chicken on lakeside salad  
+- 6 oz barbacoa or chicken carnitas on Santa Fe salad  
+- 2 each chicken strips for chicken wraps  
+- 2 each prime rib on French dip sandwich  
+- 4/6 oz walleye for sandwiches  
+- 10/12 oz walleye for dinner  
+- 6 each 13/15 shrimp for shrimp cocktail appetizer  
+- 9 each 13/15 shrimp for shrimp scampi dinner  
+- 5 each 13/15 shrimp for surf and turf/stir fry  
+- 6 oz tuna for stir fry  
+- 8 oz sirloin for steak stir fry  
+- 5 ea. meatballs for spaghetti and meatballs  
+- 5 ea. shrimp, scallops for pesto pasta  
+- 8 oz Italian sausage for gnocchi pasta  
+- 8 count mini corn dogs  
+- 16 count red hook shrimp  
+```
+
+---
+
+### 📋 `Kitchen Policies`
+
+```markdown
+# Kitchen Policies
+
+1. All kitchen staff must wear a hat.  
+2. Music is allowed **"FOR NOW"**, but if staff spend too much time on their phone for music, it will be banned.  
+3. Inappropriate music (abusive, vulgar, threatening, disrespectful) is not allowed.  
+4. Volume must stay within your personal workspace. Loud music disrupting service will be banned.  
+5. No breaks from 11AM–2PM or 5PM–8PM. Only one person on break at a time; inform a co-worker.  
+```
+
+---
+
+### 🍔 `Lakeside Meal Policy`
+
+```markdown
+# Lakeside Meal Policy
+
+**Staff Meal Options**
+
+- No staff meals between the hours of 11AM–2PM & 5PM–8:30PM  
+- Applies to cooks, dishwashers, servers, hosts, and bartenders  
+- **ONLY** free meals:  
+  - Hamburger/Cheeseburger  
+  - Three Chicken Strips and Fries  
+  - Wraps  
+  - Lunch Specials  
+  - Pasta Bar  
+  - Entrée Salads  
+  - Rice Bowls  
+- All employee meals **must** be rung up through the computer  
+- **No verbal orders allowed**  
+```
+
+---
+
+### 📦 `Prep List (1)`
+
+```markdown
+# Prep List
+
+| Item | Par | On Hand | Prep |
+|------|-----|---------|------|
+| Sauerkraut | 2 gal | | |
+| Corn Beef Portions | 20 | | |
+| Turkey Portions | 20 | | |
+| Art-Spin Dip | 2 gal | | |
+| Bruschetta Mix | 1 gal | | |
+| Brown Butter | 2 qt | | |
+| Barbacoa Beef | 2 gal | | |
+| Carnita Chicken | 2 gal | | |
+| Brown Rice for Bowls | 2 gal | | |
+| Black Beans Roasted | 2 gal | | |
+| Roasted Tomatoes | 2 cs | | |
+| Sliced Red Onions | 2-6th pans | | |
+| Sliced Tomatoes | 2-6th pans | | |
+| Walleye Breading | 3 gal | | |
+| Walleye 6oz Breaded | business | | |
+| Walleye 8-10oz Breaded | business | | |
+| Walleye 4-6oz Thaw | business | | |
+| Walleye 8-10oz Thaw | business | | |
+| Fettuccine Portions | 20 | 12 | |
+| Spaghetti Portions | 12 | 10 | |
+| Craisin Aioli | | | |
+| Penne Portions | 10 | | |
+| Bloody Mary Burger Sauce | 1 gal | | |
+| Pineapple Bourbon Sauce | 1 gal | 1 | |
+| Marsala Sauce | 1 gal | | |
+| Burger Sauce | 1 gal | | |
+| Chipotle Sauce | 1 gal | 2 gal | |
+| Alfredo | 2 gal | | |
+| Spaghetti Sauce | 2 gal | | |
+| Pesto | 1-6th pan | 1 reserve | |
+| Greek Vinaigrette | 2 gal | | |
+| Asian Dressing | 2 gal | | |
+| Chili Lime Aioli | 1 gal | | |
+| Fire Rst Tom Dressing | 1 gal | | |
+| Pull Bread & Rotate | business | | |
+```
+
+---
+
+### 🥔 `Prep List (2)`
+
+```markdown
+# Prep List Continued
+
+| Item | Par | On Hand | Prep |
+|------|-----|---------|------|
+| Wash Potatoes | ALL | ALL | |
+| Rosemary Baby Reds | 2–3rd pans | 10 lbs | |
+| Dinner Bread Focaccia | business | | |
+| Cook Chicken Wings | ALL | 1 case | |
+| Burger Patties | ALL | 4 cases | |
+| Au Gratins | ALL | 2 recipes | |
+| Cut Fruit for Servers | business | | |
+| Dinner Salads | business | | |
+| Nacho Chips | 2 tubs | | |
+| Bacon | 3 trays | | |
+
+### Notes
+- Put away order in freezer & organize  
+- Arrange/decorate desserts  
+```
+
+---
+
+Let me know if you’d like these bundled into one `.md` file or broken into files for the app.

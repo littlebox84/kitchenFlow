@@ -1,0 +1,89 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cursor-insights/cursor-rules/main/schema.json",
+  "rules": [
+    {
+      "description": "Avoid hardcoding credentials or API keys",
+      "pattern": "(API|SECRET|KEY|TOKEN|PASSWORD)\\s*=\\s*['\"][^'\"]+['\"]",
+      "severity": "error"
+    },
+    {
+      "description": "Enforce consistent use of 'use client' in interactive components",
+      "pattern": "^(?!\\/\\/)(?!.*'use client').*use(State|Effect)\\(",
+      "severity": "warning"
+    },
+    {
+      "description": "Import UI components only from '@/components/ui'",
+      "pattern": "from ['\"](?!@\\/components\\/ui)(.*\\/)?(button|card|input|toast)['\"]",
+      "severity": "warning"
+    },
+    {
+      "description": "Avoid direct DOM access inside React components",
+      "pattern": "\\bdocument\\.getElementById\\(|document\\.querySelector\\(",
+      "severity": "warning"
+    },
+    {
+      "description": "Require alt text on all <Image> tags",
+      "pattern": "<Image(?![^>]*alt=)[^>]*>",
+      "severity": "warning"
+    },
+    {
+      "description": "Avoid static fetch in components; move logic to /lib/data",
+      "pattern": "fetch\\([^)]*\\)",
+      "severity": "info"
+    },
+    {
+      "description": "Don't leave TODOs in production code",
+      "pattern": "//\\s*TODO.*",
+      "severity": "warning"
+    },
+    {
+      "description": "Disallow console.log usage outside /ai or dev files",
+      "pattern": "(?<!ai\\/|dev\\.)ts[^\\n]*console\\.log\\(",
+      "severity": "warning"
+    },
+    {
+      "description": "Ensure Next.js pages export metadata",
+      "pattern": "export default function .*Page\\(",
+      "severity": "info",
+      "condition": "check for metadata export in same file"
+    },
+    {
+      "description": "Disallow mock data in components — move to /lib/data or /public/data",
+      "pattern": "(const|let)\\s+\\w+\\s*=\\s*\\[\\{.*\\}\\]",
+      "severity": "info"
+    },
+    {
+      "description": "Image assets must be stored in /public/img and referenced via static path",
+      "pattern": "['\"](?!\\/img\\/)[^'\"]*\\.(png|jpg|jpeg|gif)['\"]",
+      "severity": "warning"
+    },
+    {
+      "description": "Image filenames should use kebab-case and reflect purpose (e.g., quick-reference-card.png)",
+      "pattern": "['\"][^'\"]*(?<![a-z0-9\\-])([A-Z_\\s]+)[^'\"]*\\.(png|jpg|jpeg|gif)['\"]",
+      "severity": "info"
+    },
+    {
+      "description": "All files in /src/ai/flows must export a function named after the file",
+      "pattern": "src\\/ai\\/flows\\/(\\w+)\\.ts",
+      "severity": "error",
+      "condition": "check for 'export function \\1'"
+    },
+    {
+      "description": "Each core route file should reference a related PRD entry in a top comment",
+      "pattern": "src\\/app\\/\\(app\\)\\/.+\\/page\\.tsx",
+      "severity": "info",
+      "condition": "check for '// PRD: ' comment at top"
+    },
+    {
+      "description": "Every guided cooking step must support quality_check or explicitly set it to false",
+      "pattern": "step\\s*:\\s*\\{[^}]*\\}",
+      "severity": "info",
+      "condition": "check for 'quality_check' key in object"
+    },
+    {
+      "description": "LocalStorage keys should be prefixed with 'kflow-' for consistency",
+      "pattern": "localStorage\\.setItem\\(['\"](?!kflow-)[^'\"]+['\"]",
+      "severity": "warning"
+    }
+  ]
+}

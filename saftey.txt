@@ -1,0 +1,190 @@
+Below is a ready-to-paste Safety & Compliance "Quick Reference" set for your KitchenFlow Trainer.
+I formatted each item to match the existing QuickRefItem shape (name | type | details | category).
+Drop this array into the same mock-data-file you're already using (or load it from JSON) and point the Quick Ref page at it.
+If you'd rather give Safety its own nav entry, just create /safety/page.tsx and render these items there instead.
+
+ts
+Copy
+Edit
+// safetyQuickRef.ts
+export const safetyQuickRef: QuickRefItem[] = [
+  /* ─── FOOD TEMPERATURES ─────────────────────────────────────────────── */
+  {
+    name: "Poultry & Stuffed Foods",
+    type: "Min Internal Temp",
+    details: "165 °F for 15 sec (whole or ground poultry, stuffing, casseroles, TCS leftovers)",
+    category: "Food Safety"
+  },
+  {
+    name: "Ground Meats (non-poultry)",
+    type: "Min Internal Temp",
+    details: "155 °F for 15 sec (burgers, sausage, gyro-beef, etc.)",
+    category: "Food Safety"
+  },
+  {
+    name: "Seafood & Whole Muscle Cuts",
+    type: "Min Internal Temp",
+    details: "145 °F for 15 sec (fish, shellfish, steaks, chops, roasts) + 3-min rest",
+    category: "Food Safety"
+  },
+  {
+    name: "Eggs for Hot-Hold",
+    type: "Min Internal Temp",
+    details: "155 °F; for immediate service cook until yolk & white are firm (≈ 145 °F)",
+    category: "Food Safety"
+  },
+  {
+    name: "Hot-Holding",
+    type: "Holding Temp",
+    details: "≥ 135 °F after initial cook/reheat (check every 4 h)",
+    category: "Food Safety"
+  },
+  {
+    name: "Cold-Holding",
+    type: "Holding Temp",
+    details: "≤ 41 °F (milk/eggs may arrive ≤ 45 °F but must reach 41 °F within 4 h)",
+    category: "Food Safety"
+  },
+  {
+    name: "Cooling Rule (135 → 41 °F)",
+    type: "Cooling",
+    details: "135 → 70 °F within 2 h AND 70 → 41 °F within next 4 h (total ≤ 6 h)",
+    category: "Food Safety"
+  },
+  {
+    name: "Reheating for Hot Hold",
+    type: "Reheat",
+    details: "165 °F within 2 h; sauces & soups must be rapidly heated (stir while heating)",
+    category: "Food Safety"
+  },
+  /* ─── PERSONAL HYGIENE & HEALTH ─────────────────────────────────────── */
+  {
+    name: "Hand-Washing Steps",
+    type: "Procedure",
+    details: "20 sec total: wet → soap 10-15 sec (backs, nails, between fingers) → rinse → dry w/ single-use towel → turn off faucet with towel",
+    category: "Hygiene"
+  },
+  {
+    name: "When to Exclude or Restrict",
+    type: "Employee Health",
+    details: "Exclude for vomiting, diarrhea, jaundice, diagnosed Norovirus, Salmonella, E. coli, Shigella, Hep A; restrict with persistent cough or sore throat+fever (MN Rule 4626.0040-.0060)",
+    category: "Hygiene"
+  },
+  {
+    name: "Hair & Beard Restraints",
+    type: "Dress Code",
+    details: "Hats/hairnets & beard covers required; must fully contain hair (Rule 4626.0115)",
+    category: "Hygiene"
+  },
+  /* ─── ALLERGEN AWARENESS ────────────────────────────────────────────── */
+  {
+    name: "Top-9 Allergens",
+    type: "Allergen",
+    details: "Milk, Eggs, Fish, Shellfish, Tree Nuts, Peanuts, Wheat, Soy, Sesame (as of Jan 2023)",
+    category: "Allergens"
+  },
+  {
+    name: "Avoiding Cross-Contact",
+    type: "Allergen Procedure",
+    details: "New gloves & utensils, dedicated fryers/areas, sanitize surfaces, store allergens below/all separate",
+    category: "Allergens"
+  },
+  /* ─── SANITIZING & CHEMICALS ────────────────────────────────────────── */
+  {
+    name: "Chlorine Dish Sanitizer",
+    type: "Sanitizer Level",
+    details: "50–100 ppm, ≥ 75 °F (mechanical dish) or ≥ 100 °F (manual sink); test every batch",
+    category: "Chemical Safety"
+  },
+  {
+    name: "Quat Sanitizer",
+    type: "Sanitizer Level",
+    details: "200–400 ppm (label-specific); water ≤ 75 °F; 30-sec contact",
+    category: "Chemical Safety"
+  },
+  {
+    name: "Never Mix",
+    type: "Chemical Warning",
+    details: "Bleach + Ammonia or Bleach + Acid → toxic chloramine/chlorine gas",
+    category: "Chemical Safety"
+  },
+  /* ─── EQUIPMENT & FIRE ──────────────────────────────────────────────── */
+  {
+    name: "Knife Safety Basics",
+    type: "Equipment",
+    details: "Sharp knife = safe knife; cut on stable board; claw grip; never leave knife in sink",
+    category: "General Safety"
+  },
+  {
+    name: "Class K Extinguisher",
+    type: "Fire Safety",
+    details: "Required within 30 ft of commercial fryers; never use water on grease fires",
+    category: "General Safety"
+  },
+  {
+    name: "Lifting Technique",
+    type: "Ergonomics",
+    details: "Bend knees, keep back straight, load close, lift with legs, <50 lb solo",
+    category: "General Safety"
+  },
+  /* ─── ADMIN / COMPLIANCE ────────────────────────────────────────────── */
+  {
+    name: "Certified Food Protection Manager",
+    type: "MN Requirement",
+    details: "Every establishment must employ ≥ 1 CFPM; certificate posted & current (Rule 4626.0033)",
+    category: "Compliance"
+  },
+  {
+    name: "Date-Marking (TCS R-T-E Foods)",
+    type: "MN Requirement",
+    details: "7-day max at ≤ 41 °F; day of prep/opening = Day 1 (Rule 4626.0400)",
+    category: "Compliance"
+  }
+];
+How to wire it up quickly
+Data
+
+Save the snippet as /public/data/safetyQuickRef.json (or a TS file in /src/lib).
+
+Import & merge with the existing mock data:
+
+ts
+Copy
+Edit
+import { safetyQuickRef } from "@/public/data/safetyQuickRef";
+const quickRefItems = [...existingQuickRef, ...safetyQuickRef];
+UI
+
+Option A: keep everything on /quick-ref and add a category filter chip ("Safety").
+
+Option B: duplicate quick-ref/page.tsx to /safety/page.tsx, pull only Safety & Compliance categories, and add a sidebar link:
+
+ts
+Copy
+Edit
+{ icon: ShieldCheck, label: "Safety", href: "/safety" }
+Future-proofing
+
+All facts cite the latest publicly available MDH or USDA guidance.
+
+MN Food Code is slated for a full revision beginning late 2025; mark a 2026-Q1 task to audit this list then.
+
+Key sources (latest publicly available)
+USDA FSIS Safe Minimum Internal Temperature Chart 
+fsis.usda.gov
+
+MDH Time/Temperature Requirements Fact Sheet 
+health.state.mn.us
+
+MDH TCS Cooling & Reheating Fact Sheets 
+health.state.mn.us
+health.state.mn.us
+
+MN Rules 4626 – Hair restraints (§.0115) & CFPM requirement (§.0033) 
+revisor.mn.gov
+revisor.mn.gov
+
+MDH inspection guidance on chlorine sanitizer ≥ 50 ppm @ 75 °F 
+health.state.mn.us
+
+Feel free to tweak wording to match your kitchen's voice. Once imported, cooks will have one-tap access to the essentials—no more flipping through ServSafe binders in the middle of rush.

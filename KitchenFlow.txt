@@ -1,0 +1,607 @@
+Product Requirements Document: KitchenFlow Trainer
+Version: 1.0 Date: {{YYYY-MM-DD}} (Current Date) Author/Project Lead: [Your Name/Team Name]
+
+KitchenFlow Trainer is a digital training application designed to streamline the onboarding process for new kitchen staff at restaurants, initially targeting "Lakeside Kitchen." Its primary objective is to provide an interactive and engaging platform for learning menu items, mastering cooking procedures, ensuring plating consistency, and adhering to operational best practices like cleaning. The system aims to reduce training time, improve food quality and consistency, and empower new hires with the confidence and skills needed to succeed.
+
+Commercial kitchens often face challenges with:
+
+High staff turnover, leading to continuous training needs.
+Inconsistent dish preparation and plating, impacting quality and customer satisfaction.
+Lengthy and resource-intensive traditional training methods.
+Difficulty in tracking trainee progress and identifying areas needing improvement.
+KitchenFlow Trainer delivers value by:
+
+Accelerating Onboarding: Providing structured, self-paced learning modules.
+Enhancing Consistency: Offering clear, step-by-step guidance and visual references.
+Improving Quality Control: Integrating AI-powered checks for plating and build accuracy.
+Increasing Efficiency: Making information readily accessible through a quick reference database.
+Boosting Confidence: Allowing trainees to practice and receive feedback in a supportive environment.
+Standardizing Procedures: Ensuring all staff follow consistent methods for cooking and cleaning.
+Primary Users:
+New Kitchen Hires (Cooks, Prep Staff): Individuals with varying levels of prior kitchen experience, needing to quickly learn specific menu items and procedures of Lakeside Kitchen. They are likely tech-savvy to a basic degree and will use tablets or mobile devices in the kitchen.
+Secondary Users:
+Kitchen Managers/Head Chefs: Oversee training, monitor progress, and potentially contribute to content creation (e.g., reference images, best practice videos).
+Restaurant Owners/Management: Interested in efficiency gains, quality improvement, and reduced training overhead.
+Reduce new hire onboarding time to achieve proficiency on core menu items by 30% within 6 months of full implementation.
+Improve dish preparation and plating consistency scores (measured by AI quality checks and manager spot-checks) by 25% across trained staff within 6 months.
+Increase new hire satisfaction and confidence with the training process, measured by post-training surveys (target 80% satisfaction).
+Achieve 90% adoption among new kitchen staff within the first 3 months of rollout.
+Maintain high user engagement: Target average of 3+ active sessions per week per new trainee during their initial training period.
+Average time to complete core dish training modules.
+Percentage of dishes passing AI Quality Check on first attempt.
+User engagement: Daily Active Users (DAU), Weekly Active Users (WAU), session duration, module completion rates.
+Error rates: Frequency of "last errors" logged in the Progress Tracking feature.
+Content coverage: Number of dishes and procedures available in the system.
+System uptime and performance: Page load times, AI check response times.
+MVP Launch (Internal Pilot): Target End of Q3 {{Current Year}}
+Full Rollout to all new hires at Lakeside Kitchen: Target End of Q4 {{Current Year}}
+Content Expansion (all menu items): Target End of Q1 {{Next Year}}
+User Authentication: Secure PIN-based login for trainees.
+Guided Cook Mode: Interactive, step-by-step cooking instructions for dishes, including:
+Textual instructions.
+Integrated timers for steps.
+Visual media (images, GIFs, short videos) demonstrating techniques.
+Target temperature display.
+Plating Alignment Tool: Camera-based feature with reference image overlay for plating practice.
+AI Quality Check:
+Photo submission of plated dish via device camera.
+Genkit-powered AI analysis for plating accuracy and build quality.
+Constructive feedback and pass/fail indication.
+Quick Reference Database: Searchable repository for:
+Ingredients information.
+Preparation methods.
+Cooking temperatures.
+Digital Checklists:
+Cleaning and closing procedures.
+Task completion tracking.
+Progress Tracking:
+Individual user progress on modules.
+XP Points and Levels.
+Badges for achievements.
+Perfect build streaks.
+Log of last errors for review.
+Responsive Design: Optimized for use on tablets and mobile devices within a kitchen environment.
+Inventory management.
+Staff scheduling or rota management.
+Direct Point of Sale (POS) system integration.
+Customer-facing features or ordering.
+Advanced content creation tools for non-technical managers (
+
+
+
+Skip to main content
+
+key
+Get API key
+Studio
+Dashboard
+Documentation
+open_in_new
+Jared Sanford
+Copy of Consolidating Codebase for AI Rebuild
+ThinkingThoughts
+(experimental)
+Expand to view model thoughts
+
+chevron_right
+ThinkingThoughts
+(experimental)
+Expand to view model thoughts
+
+chevron_right
+Excellent! Here is Part 3 of the enhanced project documentation for KitchenFlow Trainer, focusing on the application's routes, pages, and core UI components.
+KitchenFlow Trainer - Project Documentation for Reconstruction (Part 3 of N)
+IX. src/app/(auth) Route Group (Authentication Pages)
+This route group handles pages related to user authentication, primarily the login page. It uses a distinct, simpler layout.
+src/app/(auth)/layout.tsx
+Purpose: Defines the layout for all pages within the (auth) group (e.g., /login). It provides a minimal structure, typically centered content suitable for forms.
+Content:
+import React from 'react';
+
+export default function AuthLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-primary/10 via-background to-secondary/20 p-4">
+      {/*
+        Could add a logo or app name here if desired for auth pages.
+        Example:
+        <div className="mb-8">
+          <img src="/images/logo-large.png" alt="KitchenFlow Trainer" className="h-16 w-auto" />
+        </div>
+      */}
+      <div className="w-full max-w-md">
+        {children}
+      </div>
+    </main>
+  );
+}
+Use code with caution.
+TypeScript
+Styling Notes: Uses a subtle gradient background and centers content in a max-w-md container.
+src/app/(auth)/login/page.tsx
+Purpose: Defines the page component for the /login route. It primarily renders the LoginForm component.
+Content:
+import { LoginForm } from '@/components/auth/LoginForm';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Login - KitchenFlow Trainer',
+  description: 'Login to access your kitchen training dashboard.',
+};
+
+export default function LoginPage() {
+  return <LoginForm />;
+}
+Use code with caution.
+TypeScript
+X. src/app/(app) Route Group (Main Application Pages)
+This route group contains the core application pages accessible after authentication. It uses the main application layout (AppShell).
+src/app/(app)/layout.tsx
+Purpose: Defines the layout for all pages within the (app) group (e.g., /home, /learn). It wraps the page content with the AppShell component, which includes the sidebar and header.
+Content:
+import React from 'react';
+import { AppShell } from '@/components/layout/AppShell';
+
+// Optional: Add metadata specific to the authenticated app section
+// export const metadata: Metadata = {
+//   title: 'Dashboard - KitchenFlow Trainer', // This would be overridden by page-specific titles
+// };
+
+export default function AuthenticatedAppLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return <AppShell>{children}</AppShell>;
+}
+Use code with caution.
+TypeScript
+src/app/(app)/home/page.tsx
+Purpose: The main dashboard or landing page after login. Provides quick navigation to key application sections and a summary of user progress.
+Key Features & Components Used:
+Displays a welcome message.
+Uses Card components for quick access links: "Start Cook-Mode", "Quick Reference", "Shift Prep", "Closing Tasks". Each card includes an icon (Icon component from lucide-react), title, description, and a Button with a Link from next/link.
+"Your Progress" section (mock data): Displays XP, level, badges, streaks. Uses Progress bar, Badge component (UI), and icons.
+data-ai-hint attributes on images (e.g., <Image data-ai-hint="User avatar for personalization settings" ... />), suggesting potential future AI integrations.
+Data: Primarily uses static text and links. Progress section uses mock data.
+Note for Rebuilder: Replicate the card layout and link destinations. The progress section is illustrative and would need real data integration if it's a core feature.
+src/app/(app)/learn/page.tsx
+Purpose: The landing page for learning modules. Displays dish categories, allowing users to navigate to the Cook Mode for a specific category.
+Key Features & Components Used:
+Fetches all dish categories using getAllCategories() from @/lib/data (Server Component).
+Displays categories as Card components. Each card shows:
+Category name.
+Number of dishes in the category.
+Cover image (first dish's cover image in that category).
+A short list of dish names within the category.
+A Button linking to /learn/cook-mode?category=[categoryName].
+Uses Image component for category cover images with data-ai-hint.
+Data: Dynamically loads category and dish data from build_steps.json via getAllCategories.
+Note for Rebuilder: Ensure getAllCategories correctly processes and groups dishes. Image paths must be correct.
+src/app/(app)/learn/cook-mode/page.tsx
+Purpose: Displays a list of all dishes or dishes filtered by a category (from URL query parameter category). This is the dish selection screen for the Cook Mode.
+Key Features & Components Used:
+Server Component that reads the category from searchParams.
+Fetches dishes using getAllDishes() or getDishesByCategory() from @/lib/data.
+Renders each dish using the DishCard component.
+Includes a "Back to Learn Modules" link.
+Data: Dynamically loads dish data based on the presence/absence of a category filter.
+Note for Rebuilder: Query parameter handling is key. DishCard component is responsible for individual dish presentation.
+src/app/(app)/learn/cook-mode/[dishId]/page.tsx ('use client')
+Purpose: The core interactive guided cook mode page for a specific dish. Users navigate through cooking steps.
+Key Features & Components Used:
+Client Component that fetches dish data using an API route (/api/dishes/${dishId}) via fetch in a useEffect hook.
+Manages current step state (currentStepIndex).
+Uses StepDisplay component to show the current step's instruction, media, timer, etc.
+Displays a Progress bar for overall recipe progress.
+"Previous Step" and "Next Step" / "Finish & Check Quality" / "Finish Recipe" Buttons for navigation.
+Handles navigation to /photo-check if quality_check is true on the last step, or to /recap otherwise.
+Loading and error state handling.
+Data: Fetches specific dish data from the API.
+State Management: useState for dish, currentStepIndex, loading, error.
+Note for Rebuilder: This is a complex client component. Pay attention to state updates, step navigation logic, and API data fetching. The API route /api/dishes/[dishId]/route.ts must be functional.
+src/app/(app)/learn/cook-mode/[dishId]/photo-check/page.tsx ('use client')
+Purpose: Page for the AI-powered photo quality check of a completed dish.
+Key Features & Components Used:
+Client Component. Fetches dish data (for dishName and dishId) similar to the cook mode page.
+Renders the AiQualityCheckClient component, passing dishId, dishName, and an optional referenceImageUrl.
+handleCheckComplete callback: stores AI check results in localStorage and navigates to the recap page.
+Attempts to find a referenceImageUrl from the dish's steps (if a step has an overlay property).
+Data: Fetches specific dish data. Interacts with localStorage.
+Note for Rebuilder: AiQualityCheckClient is the core UI for this feature. The logic for finding a referenceImageUrl from step overlays should be verified. localStorage key for results should be consistent with the recap page.
+src/app/(app)/learn/cook-mode/[dishId]/recap/page.tsx ('use client')
+Purpose: Displays a summary/recap after completing a cook mode session (and optionally, a photo check).
+Key Features & Components Used:
+Client Component. Fetches dish data.
+Retrieves photo check result (if any) from localStorage.
+Displays a "Well Done!" or "Good Effort!" message based on isCorrectlyBuilt from the photo check.
+Uses Confetti component (from react-confetti) on success.
+Shows AI feedback if available.
+Provides Buttons to "Try Again", "Next Dish/Module", or "Return Home".
+Uses Image to display the dish's cover image.
+Data: Fetches specific dish data. Reads from localStorage.
+Note for Rebuilder: Ensure consistent localStorage keys. Navigation logic for "Next Dish/Module" might need further implementation (e.g., finding the next dish in the category or sequence).
+src/app/(app)/quick-ref/page.tsx
+Purpose: Provides a quick reference guide for kitchen staff (e.g., temperatures, prep notes).
+Key Features & Components Used:
+Displays a title "Quick Reference".
+Includes a (currently non-functional) search Input field.
+Lists mock reference items (QuickRefItem type) using Card components. Each item shows name, type, details, category.
+Data: Uses mock data for QuickRefItem[].
+Note for Rebuilder: The search functionality is a placeholder. For a real implementation, this would involve filtering the reference items or fetching from a backend.
+src/app/(app)/shift-prep/page.tsx
+Purpose: A "Shift Prep Board" to view and manage preparation tasks and par levels.
+Key Features & Components Used:
+Uses Card for the main container.
+Displays prep items (PrepItem type) in a Table. Columns: Item Name, Par Level, Current Level (editable Input), Progress (Progress bar).
+Includes Checkboxes (functionality not fully clear from context, perhaps for marking items as "being prepped").
+Placeholder for a "Need to Prep?" wizard feature.
+Data: Uses mock data for PrepItem[].
+Note for Rebuilder: The "Current Level" input would need to update state and potentially persist data. The wizard is a future feature.
+src/app/(app)/close-down/page.tsx
+Purpose: A "Closing & Cleaning" checklist.
+Key Features & Components Used:
+Displays checklist items (CleaningItem type) using Cards or a list. Each item shows: task, station, completion status (Checkbox), and optional media (Image for reference).
+data-ai-hint on images.
+Data: Uses mock data for CleaningItem[].
+Note for Rebuilder: State management for checkbox completion would be needed for a functional checklist.
+src/app/(app)/my-progress/page.tsx
+Purpose: Displays detailed user progress, including XP, level, badges, streaks, and areas for improvement.
+Key Features & Components Used:
+Overall performance metrics: XP, level, Progress to next level.
+Badges earned: Card for each badge with icon, name, description.
+Perfect build streaks: Lists dishes and streak counts.
+Last errors/Areas for improvement: Lists feedback items.
+Data: Uses mock data for UserProgress type.
+Note for Rebuilder: This page relies heavily on mock data. A real implementation would require a robust backend system for tracking and storing user progress.
+XI. src/app/api Directory (API Routes)
+This directory contains backend API route handlers.
+src/app/api/dishes/[dishId]/route.ts
+Purpose: API endpoint to fetch a single dish by its ID. Used by client components like the Cook Mode page.
+Logic:
+Handles GET requests.
+Extracts dishId from params.
+Calls getDishById(dishId as string) from @/lib/data.
+Returns the dish data as JSON with a 200 status, or a 404 if not found, or 400 if ID is missing.
+Content:
+import { NextResponse } from 'next/server';
+import { getDishById } from '@/lib/data'; // Ensure this path is correct
+
+export async function GET(
+  request: Request,
+  { params }: { params: { dishId: string } }
+) {
+  const dishId = params.dishId;
+
+  if (!dishId) {
+    return NextResponse.json({ error: 'Dish ID is required' }, { status: 400 });
+  }
+
+  try {
+    const dish = await getDishById(dishId);
+
+    if (!dish) {
+      return NextResponse.json({ error: 'Dish not found' }, { status: 404 });
+    }
+
+    return NextResponse.json(dish, { status: 200 });
+  } catch (error) {
+    console.error(`API Error fetching dish ${dishId}:`, error);
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+  }
+}
+Use code with caution.
+TypeScript
+XII. src/components Directory (UI and Feature Components)
+Contains reusable React components, organized by functionality.
+src/components/auth/LoginForm.tsx ('use client')
+Purpose: Renders the login form and handles the (simulated) authentication process.
+Key Features:
+Input field for a 4-digit PIN.
+Client-side state for PIN and loading status.
+handleSubmit:
+Simulates API call (setTimeout).
+Sets an authentication cookie (kitchenflow-auth=true) using document.cookie.
+Shows a success toast notification using toast() from sonner (via useToast from @/components/ui/use-toast).
+Redirects to /home using router.push() from next/navigation.
+Uses Card, Label, Input, Button, Loader2 icon.
+Note for Rebuilder: The authentication is client-side and simulated. For a real application, this should involve a secure backend API call. Cookie management should ideally be HttpOnly for security.
+src/components/auth/id,name,category,description,price
+Purpose: This is NOT a component. It's a CSV data file, likely used as a source or for quick data generation for build_steps.json.
+Content: Comma-separated values of dish attributes.
+Note for Rebuilder: This file can be ignored for the functional application build but indicates the data schema for dishes.
+src/components/cook-mode/DishCard.tsx
+Purpose: Displays a single dish as a card, typically in a list (e.g., on /learn/cook-mode).
+Key Features:
+Props: dish (type Dish from @/lib/types).
+Displays dish.coverImage (using next/image), dish.name, a truncated dish.description, and number of steps.
+Includes a "Start Cooking" Button that links to /learn/cook-mode/${dish.id}.
+Uses Card, Image, Button, ChefHat icon.
+data-ai-hint on the image.
+src/components/cook-mode/StepDisplay.tsx
+Purpose: Renders the content for a single step in the guided cook mode.
+Key Features:
+Props: step (type Step), currentStepNumber, totalSteps, dishName, dishCoverImage.
+Displays step number (currentStepNumber / totalSteps).
+Renders step.instruction using Markdown component (from markdown-to-jsx).
+If step.media exists, displays it as an Image or video.
+If step.overlay exists, displays it as an overlay Image (likely for plating guidance).
+If step.timerInSeconds exists, renders the Timer component.
+If step.quality_check is true, displays a "Quality Check Point" message.
+data-ai-hint on images.
+src/components/cook-mode/Timer.tsx ('use client')
+Purpose: A countdown timer component.
+Key Features:
+Props: initialTimeInSeconds, onTimerEnd callback.
+State for timeLeft, isActive, isPaused.
+Controls: "Start", "Pause", "Resume", "Reset" Buttons.
+Displays remaining time (MM:SS format).
+Progress bar showing time elapsed.
+Optionally plays a sound and vibrates (browser permitting) on timer end.
+Uses useEffect for the countdown logic.
+useSound hook (from use-sound library, ensure it's in package.json) for audio feedback.
+src/components/cook-mode/AiQualityCheckClient.tsx ('use client')
+Purpose: The client-side UI for capturing a photo of a dish and interacting with the AI quality check flow.
+Key Features:
+Props: dishId, dishName, referenceImageUrl?, onCheckComplete callback.
+State: photoDataUri, aiResponse, loading, error, showReference.
+Uses useRef for videoRef and canvasRef.
+startCamera(): Accesses user's camera via navigator.mediaDevices.getUserMedia.
+capturePhoto(): Draws video frame to canvas, converts to jpeg data URI.
+handleRetake(): Clears photo, restarts camera.
+handleSubmitPhoto():
+Sets loading state.
+Calls a Next.js API route (e.g., /api/ai/quality-check - this API route needs to be created) which in turn calls the runAiQualityCheck Genkit flow function from src/ai/flows/ai-quality-check.ts.
+Handles success: updates aiResponse, calls onCheckComplete.
+Handles error: sets error state, shows toast.
+Displays camera feed, photo preview, reference image, AI feedback.
+Uses Button, Image, Loader2, Alert components.
+API Route for AI Check (Needs to be created, e.g., src/app/api/ai/quality-check/route.ts):
+// Example: src/app/api/ai/quality-check/route.ts
+import { NextResponse } from 'next/server';
+import { runAiQualityCheck } from '@/ai/flows/ai-quality-check'; // Adjust path if needed
+import { z } from 'zod';
+
+const requestBodySchema = z.object({
+  photoDataUri: z.string().startsWith('data:image/'),
+  dishName: z.string(),
+});
+
+export async function POST(request: Request) {
+  try {
+    const body = await request.json();
+    const validation = requestBodySchema.safeParse(body);
+
+    if (!validation.success) {
+      return NextResponse.json({ error: 'Invalid input', details: validation.error.format() }, { status: 400 });
+    }
+
+    const { photoDataUri, dishName } = validation.data;
+    const result = await runAiQualityCheck(photoDataUri, dishName);
+    return NextResponse.json(result, { status: 200 });
+  } catch (error: any) {
+    console.error('AI Quality Check API Error:', error);
+    return NextResponse.json({ error: 'Failed to perform AI quality check', details: error.message }, { status: 500 });
+  }
+}
+Use code with caution.
+TypeScript
+Note for Rebuilder: This is a complex component. The interaction with the camera, Genkit flow (via an API route), and UI updates need careful implementation. Ensure the API route is created and correctly calls the Genkit flow.
+src/components/layout/AppShell.tsx
+Purpose: The main structural component for authenticated pages, combining the sidebar and header with the content area.
+Key Features:
+Uses CSS Grid for layout: AppSidebar on the left (fixed width, hidden on small screens), main content area on the right.
+Main content area includes AppHeader at the top and the children (page content) below.
+src/components/layout/AppHeader.tsx ('use client')
+Purpose: The application's top header bar.
+Key Features:
+Mobile: Hamburger Button that opens a Sheet containing AppSidebarNav.
+Desktop: Displays application title/logo (from AppSidebar content, or could be distinct).
+User Avatar (Avatar component) with a DropdownMenu:
+Links: "My Account" (placeholder), "My Progress" (/my-progress).
+"Settings" (disabled Button).
+"Logout" Button: clears kitchenflow-auth cookie, redirects to /login.
+Uses SheetTrigger, SheetContent, DropdownMenuTrigger, DropdownMenuContent, etc. from Shadcn UI.
+usePathname and useRouter for navigation and active state.
+src/components/layout/AppSidebar.tsx ('use client')
+Purpose: The main navigation sidebar.
+Key Features:
+Fixed width on medium+ screens, hidden on small screens (handled by AppShell and AppHeader's sheet).
+Application title/logo Link to /home.
+Renders AppSidebarNav for navigation links.
+Copyright notice at the bottom.
+Styled with custom sidebar CSS variables from globals.css.
+src/components/layout/AppSidebarNav.tsx ('use client')
+Purpose: Renders the actual navigation links within the sidebar.
+Key Features:
+Props: onLinkClick? (optional callback, e.g., to close mobile sheet).
+Defines an array of navigation items (icon, label, href).
+Uses usePathname to determine the active link.
+Applies active link styling (background, text color) using cn and custom sidebar CSS variables.
+Uses Link from next/link and icons from lucide-react.
+Example Nav Items: Home, Learn, Quick Ref, Shift Prep, Close-Down, My Progress.
+src/components/ui/ (Shadcn UI Components)
+Purpose: This directory contains numerous pre-built, styled UI components (Accordion, Alert, Avatar, Badge, Button, Card, Checkbox, Dialog, DropdownMenu, Input, Label, Progress, Select, Sheet, Table, Tabs, Toaster, Tooltip, etc.).
+General Structure: Most of these components wrap Radix UI primitives, apply Tailwind CSS styling (often using cva for variants), and re-export them.
+Note for Rebuilder: These components are fundamental to the application's look and feel. The rebuilder should ideally use the Shadcn UI CLI (npx shadcn-ui@latest add [component-name]) to add these components to their project, which ensures they get the correct structure and styling according to components.json. Manually copying them is also possible but more error-prone. The content for these was detailed in a previous Gemini response. Key ones to ensure are correct:
+Button.tsx: Variants (default, destructive, outline, secondary, ghost, link).
+Card.tsx: Structure (Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter).
+Input.tsx, Label.tsx.
+Toaster.tsx and toast.tsx (along with use-toast.ts hook) for sonner-like notifications.
+Sheet.tsx for the mobile sidebar.
+DropdownMenu.tsx for the user avatar menu.
+Progress.tsx for progress bars.
+Table.tsx for tabular data.
+--- End of Part 3 ---
+This concludes the detailed breakdown of the application structure, pages, and components. The next step would be to address image assets and provide a summary checklist for the rebuilder.
+Start typing a prompt
+
+Run
+Ctrl
+Gemini 2.5 Pro Preview 05-06
+1
+
+# Project File Structure
+
+This document outlines the main files and folders in the KitchenFlow Trainer application.
+
+```
+.
+├── .env
+├── .vscode/
+│   └── settings.json
+├── README.md
+├── PROJECT_STRUCTURE.md
+├── apphosting.yaml
+├── components.json
+├── next.config.ts
+├── package.json
+├── public/
+│   ├── data/
+│   │   └── build_steps.json
+│   └── img/
+│       ├── Chef_in_Action_Cook_Mode.png
+│       ├── Closing.png
+│       └── quick_reference_home_card.png
+├── src/
+│   ├── ai/
+│   │   ├── dev.ts
+│   │   ├── genkit.ts
+│   │   └── flows/
+│   │       └── ai-quality-check.ts
+│   ├── app/
+│   │   ├── (app)/
+│   │   │   ├── close-down/
+│   │   │   │   └── page.tsx
+│   │   │   ├── home/
+│   │   │   │   └── page.tsx
+│   │   │   ├── layout.tsx
+│   │   │   ├── learn/
+│   │   │   │   ├── cook-mode/
+│   │   │   │   │   ├── [dishId]/
+│   │   │   │   │   │   ├── page.tsx
+│   │   │   │   │   │   ├── photo-check/
+│   │   │   │   │   │   │   └── page.tsx
+│   │   │   │   │   │   └── recap/
+│   │   │   │   │   │       └── page.tsx
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── page.tsx
+│   │   │   ├── my-progress/
+│   │   │   │   └── page.tsx
+│   │   │   ├── quick-ref/
+│   │   │   │   └── page.tsx
+│   │   │   └── shift-prep/
+│   │   │       └── page.tsx
+│   │   ├── (auth)/
+│   │   │   ├── layout.tsx
+│   │   │   └── login/
+│   │   │       └── page.tsx
+│   │   ├── api/
+│   │   │   └── dishes/
+│   │   │       └── [dishId]/
+│   │   │           └── route.ts
+│   │   ├── globals.css
+│   │   └── layout.tsx
+│   ├── components/
+│   │   ├── auth/
+│   │   │   └── LoginForm.tsx
+│   │   ├── cook-mode/
+│   │   │   ├── AiQualityCheckClient.tsx
+│   │   │   ├── DishCard.tsx
+│   │   │   ├── StepDisplay.tsx
+│   │   │   └── Timer.tsx
+│   │   ├── layout/
+│   │   │   ├── AppHeader.tsx
+│   │   │   ├── AppShell.tsx
+│   │   │   ├── AppSidebar.tsx
+│   │   │   └── AppSidebarNav.tsx
+│   │   └── ui/
+│   │       ├── accordion.tsx
+│   │       ├── alert-dialog.tsx
+│   │       ├── alert.tsx
+│   │       ├── avatar.tsx
+│   │       ├── badge.tsx
+│   │       ├── button.tsx
+│   │       ├── calendar.tsx
+│   │       ├── card.tsx
+│   │       ├── chart.tsx
+│   │       ├── checkbox.tsx
+│   │       ├── dialog.tsx
+│   │       ├── dropdown-menu.tsx
+│   │       ├── form.tsx
+│   │       ├── input.tsx
+│   │       ├── label.tsx
+│   │       ├── menubar.tsx
+│   │       ├── popover.tsx
+│   │       ├── progress.tsx
+│   │       ├── radio-group.tsx
+│   │       ├── scroll-area.tsx
+│   │       ├── select.tsx
+│   │       ├── separator.tsx
+│   │       ├── sheet.tsx
+│   │       ├── sidebar.tsx
+│   │       ├── skeleton.tsx
+│   │       ├── slider.tsx
+│   │       ├── switch.tsx
+│   │       ├── table.tsx
+│   │       ├── tabs.tsx
+│   │       ├── textarea.tsx
+│   │       ├── toast.tsx
+│   │       └── toaster.tsx
+│   ├── hooks/
+│   │   ├── use-mobile.tsx
+│   │   └── use-toast.ts
+│   ├── lib/
+│   │   ├── data.ts
+│   │   ├── types.ts
+│   │   └── utils.ts
+│   └── middleware.ts
+├── tailwind.config.ts
+└── tsconfig.json
+```
+
+## Key Folders:
+
+-   **`/public`**: Static assets like images (now in `public/img/`) and the `data/build_steps.json` which contains the menu and dish information.
+-   **`/src/ai`**: Contains Genkit related code, including AI flows.
+    -   `dev.ts`: Genkit development server entry point.
+    -   `genkit.ts`: Genkit AI configuration.
+    -   `flows/`: Directory for Genkit AI flows.
+-   **`/src/app`**: Core of the Next.js application, using the App Router.
+    -   `(app)/`: Route group for authenticated application pages.
+        -   `layout.tsx`: Layout for authenticated pages (includes sidebar and header).
+        -   Individual page directories (e.g., `home/`, `learn/`, `close-down/`).
+    -   `(auth)/`: Route group for authentication pages (e.g., `login/`).
+        -   `layout.tsx`: Layout for authentication pages.
+    -   `api/`: API routes.
+    -   `globals.css`: Global styles and Tailwind CSS theme customization.
+    -   `layout.tsx`: Root layout for the entire application.
+-   **`/src/components`**: Reusable React components.
+    -   `auth/`: Authentication related components (e.g., `LoginForm.tsx`).
+    -   `cook-mode/`: Components specific to the interactive cooking mode.
+    -   `layout/`: Components for the main application shell (header, sidebar).
+    -   `ui/`: ShadCN UI components (buttons, cards, etc.).
+-   **`/src/hooks`**: Custom React hooks (e.g., `useToast.ts`).
+-   **`/src/lib`**: Utility functions, type definitions, and data access logic.
+    -   `data.ts`: Functions to fetch dish and category data.
+    -   `types.ts`: TypeScript type definitions.
+    -   `utils.ts`: General utility functions (e.g., `cn` for classnames).
+-   **`/src/middleware.ts`**: Next.js middleware for handling authentication and route protection.
+-   **Configuration Files**:
+    -   `next.config.ts`: Next.js configuration.
+    -   `tailwind.config.ts`: Tailwind CSS configuration.
+    -   `tsconfig.json`: TypeScript configuration.
+    -   `components.json`: ShadCN UI configuration.
+    -   `package.json`: Project dependencies and scripts.
+    -   `apphosting.yaml`: Firebase App Hosting configuration.
+    -   `.env`: Environment variables (should be in `.gitignore`).
+    -   `.vscode/settings.json`: VS Code specific settings.
+    -   `README.md`: Project readme.
+    -   `PROJECT_STRUCTURE.md`: This file.
+
+This structure is typical for a Next.js application using the App Router, ShadCN UI, and Tailwind CSS.
+The `public/img/` folder now contains the images recently added.
+```

@@ -1,0 +1,19 @@
+prep board 
+
+# **App Name**: PrepRight
+
+## Core Features:
+
+- Menu Item Display: Display all menu items.
+- Color-Coded Stock Status: Color-code items as in-stock (green), cautionary (yellow), or out-of-stock (red).
+- Set the Quantity Manually: User-adjustable quantities set manually, in response to LLM guidance.
+
+## Style Guidelines:
+
+- Primary color: Saturated blue (#4285F4) to give the app a professional and trustworthy feel.
+- Background color: Light gray (#F5F5F5), a very desaturated version of the primary hue.
+- Accent color: A vibrant purple (#A070F0), a more saturated complement to the primary color to provide contrast in highlights.
+- Body and headline font: 'Inter' (sans-serif) for clear, readable text.
+- Use clear and intuitive icons for different menu categories.
+- Clean and simple layout for easy navigation and readability.
+- Subtle transitions for updating stock levels.

@@ -1,0 +1,247 @@
+Below is the **master build sheet**—every burger, sandwich, and fryer basket we’ve discussed, written in exact assembly order plus plating‑garnish notes. (Starters, salads, pizzas, and entrées can be added later, but they haven’t been detail‑spec’d yet.)
+
+---
+
+## 🍔 BURGERS
+
+*All burgers are plated open‑face: **top bun (with L/T/O) on the LEFT**, bottom‑bun stack on the RIGHT.*
+
+| Burger               | **Top Bun (L / T / O)** | **Bottom‑Bun Stack (left → right, top‑to‑bottom)**                          | Garnish |
+| -------------------- | ----------------------- | --------------------------------------------------------------------------- | ------- |
+| **BYO Burger**       | Lettuce, tomato, onion  | Patty → chosen sauce → chosen cheese → chosen toppings → **bacon if added** | —       |
+| **Waska Burger**     | Lettuce, tomato, onion  | Patty → Waska whiskey sauce → Swiss → Fried onions → **Bacon**              | —       |
+| **Black & Bleu**     | *(none)*                | Patty **blackened on grill** → Bleu‑cheese crumbles                         | —       |
+| **Barbacoa Burger**  | Lettuce, tomato, onion  | Patty → Cheddar → Barbacoa beef → Fried onions                              | —       |
+| **A.M. Burger**      | Lettuce, tomato, onion  | Patty → Lakeside sauce → Cheddar → Fried egg → **Bacon**                    | —       |
+| **Bloody Mary**      | Lettuce, tomato, onion  | Patty → Vodka‑tomato sauce → Cheddar → Fried salami                         | —       |
+| **High Tide Turkey** | Lettuce, tomato, onion  | Turkey patty → Craisin aioli → Swiss                                        | —       |
+
+---
+
+## 🥪 SANDWICHES
+
+*Build order: **Bread (bottom) → Sauce → Cheese → Additional toppings → Protein → Bread (top)**.
+Cut once on a slight diagonal; points face out. **Three pickle chips at 10 o’clock on every plate.**
+Fish sandwiches also get a lemon wedge.*
+
+| Sandwich                  | Ordered Build (bottom → top)                                                                          | Garnish                                    |
+| ------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------ |
+| **Classic Reuben**        | Rye → Thousand Island → Swiss → Sauerkraut → Corned beef → Rye                                        | 3 pickles                                  |
+| **Prime Rib Dip**         | Hoagie → — → Swiss → Sautéed mushrooms & onions → Prime rib → Hoagie                                  | 3 pickles • Au jus cup                     |
+| **Walleye Sandwich**      | Hoagie → — → — → Lettuce & tomato → Fried/Battered walleye → Hoagie                                   | 3 pickles • Lemon wedge • (Tartar on side) |
+| **White Cap Patty Melt**  | Rye → Lakeside sauce → Swiss + American → Fried onions → Beef patty → Rye                             | 3 pickles                                  |
+| **Buoy Chicken**          | Sourdough → Chipotle sauce → Cheddar → Roasted peppers → **Bacon** → Grilled chicken → Sourdough      | 3 pickles                                  |
+| **Tuna Steak**            | Kaiser → Asian sauce → — → Asian slaw → Crispy wontons → Tuna steak **(sesame‑oil drizzle)** → Kaiser | 3 pickles • Lemon wedge                    |
+| **Chicken Parmesan**      | Ciabatta → Marinara → Mozzarella → **Parmesan sprinkle** → Crispy chicken → Ciabatta                  | 3 pickles                                  |
+| **Bacon Jam Pulled Pork** | Ciabatta → Bacon‑pepper jam → — → Crispy onions → Pulled pork → Ciabatta                              | 3 pickles                                  |
+| **Turkey Fresco**         | Ciabatta → **Smoked turkey** → **Artichoke‑spinach cream** → **Parmesan** → Ciabatta                  | 3 pickles                                  |
+
+---
+
+## 🍟 FRYER BASKETS
+
+*Serve in lined basket/boat with focaccia. Fish items get a lemon wedge. Default dip shown; guest may swap.*
+
+| Basket                 | Contents                                  | Default Dip        | Garnish     |
+| ---------------------- | ----------------------------------------- | ------------------ | ----------- |
+| **Fish & Chips**       | Beer‑battered cod + Fries                 | Tartar             | Lemon wedge |
+| **Chicken Strips**     | Crispy chicken tenders + Fries            | Guest‑choice       | —           |
+| **Coconut Shrimp**     | Coconut‑battered shrimp + Fries           | Chili‑lime aioli   | Lemon wedge |
+| **Redhook Ale Shrimp** | Ale‑battered shrimp + Fries               | Tartar or Cocktail | Lemon wedge |
+| **Onion Ring Basket**  | Breaded onion rings                       | Guest‑choice       | —           |
+| **French Fry Basket**  | Fries                                     | Guest‑choice       | —           |
+| **Walleye Fingers**    | Battered walleye strips                   | Tartar             | Lemon wedge |
+| **Chicken Wings**      | 8 wings (Hot Honey / BBQ / Buffalo / Dry) | Ranch or Bleu      | —           |
+
+---
+
+### ✅ This sheet is now your single source of truth for v1.1
+
+*Use it to seed the app’s build‑card JSON, quizzes, and plating reference images.*
+If you need starters, salads, pizzas, or dinner entrées added in the same format, just say the word!
+
+
+### 🔧 Last‑minute build corrections (v1.1.1)
+
+I’ve updated the master sheet to lock in your latest tweaks for the **Chicken Parmesan** and **Bacon Jam Pulled Pork** sandwiches.
+
+---
+
+## 🥪 Sandwiches (revised rows)
+
+| Sandwich                  | Ordered Build (bottom → top)                                                                                           | Garnish   |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------- | --------- |
+| **Chicken Parmesan**      | Ciabatta (bot) → **Crispy chicken breast** → **Marinara** → **Mozzarella** → **Parmesan sprinkle** → Ciabatta (top)    | 3 pickles |
+| **Bacon Jam Pulled Pork** | Ciabatta (bot) → **Pulled pork** → **Crispy onions** → Ciabatta (top ‑ underside spread with **bacon‑pepper jam**)\*\* | 3 pickles |
+
+*All other sandwich builds remain as listed in v1.1.*
+
+---
+
+### What changed?
+
+1. **Chicken Parmesan order:** chicken first, then marinara, mozzarella, parmesan.
+2. **Bacon Jam Pulled Pork:** bacon‑pepper jam now lives on the **top bun**, crispy onions sit directly on pulled pork.
+
+These updates are reflected in the PRD’s content table (§ 6.2) and will flow into the app’s build‑card data. Let me know if any other tweaks pop up—otherwise we’re locked for code!
+
+
+
+
+Below is a refined and complete **Product Requirements Document (PRD)** for the **Lakeside Menu Coach**, based on the provided details. This PRD consolidates all requirements, features, and specifications into a clear, actionable format for development.
+
+---
+
+# Product Requirements Document: Lakeside Menu Coach
+**Version**: 1.0 (Offline-First Build)  
+**Author**: Jared Sanford  
+**Date**: June 6, 2025  
+
+---
+
+## 1. Vision & Purpose
+The **Lakeside Menu Coach** is an offline-first training app designed for Lakeside's kitchen staff to streamline onboarding and ensure consistency in food preparation, safety, and operations. The app empowers new hires to master menu items, prep tasks, and safety protocols efficiently through interactive tools, reducing training time while maintaining high-quality standards.
+
+---
+
+## 2. Core App Features
+The app includes the following modules to support kitchen staff training and operations:
+
+1. **Training Module**  
+   - Interactive flashcards for each menu item, detailing ingredients, build order, and plating instructions.  
+   - Users can mark flashcards as "viewed" or "mastered" to track progress.  
+
+2. **Quiz Module**  
+   - Randomized quizzes to test knowledge on menu builds, portion sizes, and cleaning procedures.  
+   - Tracks user scores and highlights areas for improvement.  
+
+3. **PrepBoard**  
+   - A real-time, editable checklist for daily kitchen prep tasks.  
+   - Displays target vs. on-hand quantities with color-coded status indicators (e.g., green for sufficient, red for low).  
+
+4. **Kitchen Ops & Cleaning**  
+   - Digital checklists for daily closing tasks, weekly deep-cleaning, and station-specific responsibilities.  
+   - Ensures compliance with operational and safety standards.  
+
+5. **Portion Control Guide**  
+   - A quick-reference guide listing standard portion sizes for all ingredients.  
+
+6. **Policies & Rules**  
+   - Centralized access to kitchen rules, safety guidelines, and staff policies (e.g., hygiene, breaks, staff meals).  
+
+---
+
+## 3. Master Build & Plating Guide
+This section serves as the single source of truth for preparing and plating all core menu items.
+
+### 3.1 Burgers
+- **Plating Rule**: All burgers are served open-faced. The top bun (with Lettuce, Tomato, Onion, or L/T/O) is placed on the left side of the plate, and the bottom bun with the full build is on the right.  
+- **Build Rule**: Bread → Sauce → Cheese → Toppings → Protein → Top Bread.
+
+| Burger Name         | Bottom-Bun Build (In Order)                          | Top-Bun | Garnish |
+|---------------------|-----------------------------------------------------|---------|---------|
+| BYO Burger          | Sauce → ½ lb Patty → Cheese → Toppings → Bacon (if ordered) | L/T/O | None |
+| Waska Burger        | Waska Sauce → ½ lb Patty → Swiss Cheese → Fried Onions → Bacon | L/T/O | None |
+| Black & Bleu        | ½ lb Patty (blackened with Cajun spice) → Bleu Cheese Crumbles | None (plain bun) | None |
+| Barbacoa Burger     | ½ lb Patty → Cheddar → Barbacoa Beef → Fried Onions | L/T/O | None |
+| A.M. Burger         | Lakeside Sauce → ½ lb Patty → Cheddar → Fried Egg → Bacon | L/T/O | None |
+| High Tide Turkey    | Turkey Patty → Swiss Cheese                         | L/T/O | Craisin Aioli (side) |
+
+### 3.2 Sandwiches
+- **Plating Rule**: Sandwiches are cut once on a slight diagonal, with cut points facing out. Served with 3 pickle chips at 10 o’clock. Fish sandwiches include a lemon wedge.  
+- **Build Rule**: Bread → Sauce → Cheese → Toppings → Protein → Top Bread.
+
+| Sandwich Name       | Build (In Order)                                    | Garnish |
+|---------------------|----------------------------------------------------|---------|
+| Classic Reuben      | Rye → Thousand Island → Swiss → Sauerkraut → Corned Beef → Rye | 3 Pickles |
+| Prime Rib Dip       | Hoagie → Swiss → Sautéed Mushrooms & Onions → Prime Rib → Hoagie | 3 Pickles, Au Jus (side) |
+| Walleye Sandwich    | Hoagie → Lettuce → Tomato → Walleye Fillet → Hoagie | 3 Pickles, Lemon Wedge, Tartar (side) |
+| Chicken Parmesan    | Ciabatta → Crispy Chicken → Marinara → Mozzarella → Parmesan Sprinkle → Ciabatta | 3 Pickles |
+| Bacon Jam Pulled Pork | Ciabatta → Pulled Pork → Crispy Onions → Top Ciabatta (Bacon Jam on top bun) | 3 Pickles |
+| Turkey Fresco       | Ciabatta → Smoked Turkey → Artichoke-Spinach Cream → Parmesan → Ciabatta | 3 Pickles |
+| Tuna Steak          | Kaiser Roll → Asian Sauce → Asian Slaw → Crispy Wontons → Tuna Steak (sesame oil drizzle) | 3 Pickles, Lemon Wedge |
+
+### 3.3 Baskets
+- **Plating Rule**: Served in a lined basket or boat with focaccia bread. Fish and shrimp items include a lemon wedge.
+
+| Basket Name         | Contents                                           | Default Dip / Sauce | Garnish |
+|---------------------|---------------------------------------------------|---------------------|---------|
+| Fish & Chips        | Beer-battered Cod, Fries                          | Tartar Sauce        | Lemon Wedge |
+| Chicken Strips      | Crispy Chicken Tenders, Fries                     | Guest’s Choice      | None |
+| Coconut Shrimp      | Coconut-battered Shrimp, Fries                    | Chili-lime Aioli    | Lemon Wedge |
+| Redhook Ale Shrimp  | Ale-battered Shrimp, Fries                        | Tartar or Cocktail Sauce | Lemon Wedge |
+
+---
+
+## 4. Kitchen Operations & Safety
+### 4.1 Daily Closing Checklist
+- Tasks include cleaning the grill, sauté station, fryers, floors, and performing a final equipment and safety walk-through.  
+- Checklist is interactive, allowing staff to mark tasks as completed.  
+
+### 4.2 Weekly Deep-Clean Tasks
+- **Sunday**: Soak hood vents.  
+- **Monday**: Clean behind cooking equipment.  
+- **Tuesday**: Clean behind coolers.  
+- Tasks are tracked to ensure completion and compliance.  
+
+### 4.3 Kitchen Policies
+- Rules cover personal hygiene, staff meals, music, and break times.  
+- Accessible within the app for quick reference.  
+
+---
+
+## 5. User Experience (UX) & Design
+### 5.1 Theme
+- **Dark Mode Only**: Use a dark charcoal or slate background for a modern, clean, and warm aesthetic.  
+- Incorporate subtle gradients and soft "glow" effects on selected items or hovered buttons for a premium feel.  
+
+### 5.2 Navigation
+- Primary left-to-right dropdown menu for seamless access to all modules (Training, Quiz, PrepBoard, etc.).  
+- Touch-friendly design with large tap targets optimized for a fast-paced kitchen environment.  
+
+### 5.3 Layout
+- Responsive and modern, avoiding outdated or cluttered designs.  
+- Prioritize usability with clear typography and intuitive navigation.  
+
+---
+
+## 6. Technical Specifications
+### 6.1 Architecture
+- **Offline-First Progressive Web App (PWA)**: Fully functional without an internet connection after initial load.  
+- Uses service workers to cache assets and ensure offline reliability.  
+
+### 6.2 Data Source
+- All data (menu items, prep tasks, cleaning checklists, policies) is stored in local CSV files located in the `/public/build_sheets/` directory.  
+- No external database dependencies.  
+
+### 6.3 Persistence
+- User progress (quiz scores, viewed flashcards, PrepBoard entries) is stored in the browser’s `localStorage` for persistence across sessions.  
+
+### 6.4 Tech Stack
+- **Framework**: React (Next.js) for fast, component-based development.  
+- **Language**: TypeScript for type safety and scalability.  
+- **Styling**: Tailwind CSS for rapid, utility-first styling.  
+- **UI Components**: shadcn/ui for consistent, modern UI elements.  
+
+---
+
+## 7. Non-Functional Requirements
+- **Performance**: App must load within 2 seconds on modern devices, even offline.  
+- **Accessibility**: Support for screen readers and high-contrast visuals for accessibility.  
+- **Security**: No external API calls or sensitive data storage; all data is local and secure.  
+- **Scalability**: CSV-based data allows easy updates to menu items or tasks without code changes.  
+
+---
+
+## 8. Future Considerations
+- **Analytics**: Track user engagement (e.g., quiz performance, module completion) for training insights.  
+- **Multilingual Support**: Add support for additional languages to accommodate diverse staff.  
+- **Cloud Sync**: Optional cloud backup for progress if internet is available.  
+
+---
+
+This PRD provides a comprehensive blueprint for the **Lakeside Menu Coach**, ensuring a robust, user-friendly, and offline-capable training tool for Lakeside’s kitchen staff. For any questions or clarifications, please contact Jared Sanford.
+
+--- 
+
+If you need further refinements, additional features, or specific implementation details (e.g., code snippets, database schema), let me know!

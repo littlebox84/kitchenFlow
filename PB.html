@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PrepBoard – Organized Inventory</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-gradient-start: #1a1a1a;
+      --bg-gradient-end: #0f0f0f;
+      --surface: rgba(255, 255, 255, 0.05);
+      --surface-blur: rgba(255, 255, 255, 0.1);
+      --text: #e0e0e0;
+      --header-text: #4cc9f0;
+      --in-stock: rgba(0, 200, 100, 0.15);
+      --low-stock: rgba(255, 200, 0, 0.15);
+      --out-stock: rgba(200, 0, 0, 0.15);
+      --border: rgba(255, 255, 255, 0.1);
+      --banner-out: rgba(200, 0, 0, 0.2);
+      --banner-low: rgba(255, 200, 0, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    header h1 {
+      color: var(--header-text);
+      font-weight: 600;
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      flex: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* BANNERS */
+    .banner {
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 1rem;
+      font-weight: 600;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .banner.out {
+      background: var(--banner-out);
+      color: #fff;
+      border: 1px solid rgba(200, 0, 0, 0.5);
+    }
+    .banner.low {
+      background: var(--banner-low);
+      color: #111;
+      border: 1px solid rgba(255, 200, 0, 0.5);
+    }
+    .banner .item-label {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    /* Legend */
+    #legend {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+    }
+    .dot.green  { background: var(--in-stock); }
+    .dot.yellow { background: var(--low-stock); }
+    .dot.red    { background: var(--out-stock); }
+
+    /* Table Container */
+    .table-wrapper {
+      overflow-x: auto;
+      border-radius: 12px;
+      background: var(--surface);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 700px;
+    }
+    th, td {
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      background: var(--surface-blur);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+    tr:hover {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Status Coloring */
+    tr.status-in-stock td   { background: var(--in-stock);   }
+    tr.status-low-stock td  { background: var(--low-stock);  }
+    tr.status-out-stock td  { background: var(--out-stock);  }
+
+    /* Input Styles */
+    input[type="number"] {
+      width: 60px;
+      background: var(--surface-blur);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      padding: 6px;
+      text-align: center;
+      font-size: 0.95rem;
+      font-family: 'Inter', sans-serif;
+      transition: border-color 0.2s;
+    }
+    input[type="number"]:focus {
+      outline: none;
+      border-color: var(--header-text);
+      box-shadow: 0 0 6px rgba(76, 201, 240, 0.5);
+    }
+
+    /* Reset Button */
+    #resetBtn {
+      background: rgba(200, 0, 0, 0.7);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s;
+      align-self: flex-end;
+    }
+    #resetBtn:hover {
+      background: rgba(200, 0, 0, 0.9);
+    }
+
+    @media (max-width: 768px) {
+      th, td {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+      }
+      input[type="number"] {
+        width: 50px;
+        padding: 4px;
+      }
+      #legend {
+        flex-direction: column;
+        gap: 12px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>PrepBoard Inventory Tracker</h1>
+  </header>
+
+  <div class="container">
+    <!-- Reset to Defaults -->
+    <button id="resetBtn">Reset to Defaults</button>
+
+    <!-- Out of Stock Banner -->
+    <div id="outBanner" class="banner out" style="display:none;">
+      <strong>Out of Stock:</strong>
+      <span id="outItems"></span>
+    </div>
+
+    <!-- Low Stock Banner -->
+    <div id="lowBanner" class="banner low" style="display:none;">
+      <strong>Low Stock:</strong>
+      <span id="lowItems"></span>
+    </div>
+
+    <!-- Legend -->
+    <div id="legend">
+      <div class="legend-item"><span class="dot green"></span>In Stock (≥ Par)</div>
+      <div class="legend-item"><span class="dot yellow"></span>Low (Par > Stock > Reorder)</div>
+      <div class="legend-item"><span class="dot red"></span>Out (≤ Reorder)</div>
+    </div>
+
+    <!-- Table -->
+    <div class="table-wrapper">
+      <table id="inventoryTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Item</th>
+            <th>Category</th>
+            <th>Par</th>
+            <th>Reorder</th>
+            <th>Stock</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- Rows inserted via JavaScript -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    // ===== Default Data =====
+    const defaultData = [
+      { id: "ing001", item: "Hamburger Patties", category: "Proteins", par: 20, reorder: 8, stock: 0 },
+      { id: "ing002", item: "Buns (standard hamburger)", category: "Breads", par: 30, reorder: 12, stock: 0 },
+      { id: "ing003", item: "Hoagie Buns", category: "Breads", par: 15, reorder: 6, stock: 0 },
+      { id: "ing004", item: "Ciabatta Buns", category: "Breads", par: 12, reorder: 5, stock: 0 },
+      { id: "ing005", item: "Corned Beef", category: "Proteins", par: 8, reorder: 3, stock: 0 },
+      { id: "ing006", item: "Sauerkraut", category: "Produce", par: 5, reorder: 2, stock: 0 },
+      { id: "ing007", item: "Ballast Island Dressing", category: "Condiments", par: 3, reorder: 1, stock: 0 },
+      { id: "ing008", item: "Pumpernickel Bread", category: "Breads", par: 8, reorder: 3, stock: 0 },
+      { id: "ing009", item: "Swiss Cheese", category: "Cheeses", par: 10, reorder: 4, stock: 0 },
+      { id: "ing010", item: "Cheddar Cheese", category: "Cheeses", par: 15, reorder: 6, stock: 0 },
+      { id: "ing011", item: "Bleu Cheese", category: "Cheeses", par: 5, reorder: 2, stock: 0 },
+      { id: "ing012", item: "Mozzarella Cheese", category: "Cheeses", par: 12, reorder: 5, stock: 0 },
+      { id: "ing013", item: "Parmesan Cheese", category: "Cheeses", par: 8, reorder: 3, stock: 0 },
+      { id: "ing014", item: "Romaine Lettuce", category: "Produce", par: 6, reorder: 2, stock: 0 },
+      { id: "ing015", item: "Tomatoes", category: "Produce", par: 15, reorder: 6, stock: 0 },
+      { id: "ing016", item: "Onions", category: "Produce", par: 10, reorder: 4, stock: 0 },
+      { id: "ing017", item: "Pickles", category: "Produce", par: 8, reorder: 3, stock: 0 },
+      { id: "ing018", item: "Artichokes", category: "Produce", par: 4, reorder: 2, stock: 0 },
+      { id: "ing019", item: "Brussels Sprouts", category: "Produce", par: 5, reorder: 2, stock: 0 },
+      { id: "ing020", item: "Cauliflower", category: "Produce", par: 6, reorder: 2, stock: 0 },
+      { id: "ing021", item: "Potatoes", category: "Produce", par: 20, reorder: 8, stock: 0 },
+      { id: "ing022", item: "Sweet Potatoes", category: "Produce", par: 10, reorder: 4, stock: 0 },
+      { id: "ing023", item: "Black Beans", category: "Pantry", par: 8, reorder: 3, stock: 0 },
+      { id: "ing024", item: "Roasted Corn", category: "Pantry", par: 6, reorder: 2, stock: 0 },
+      { id: "ing025", item: "Black Olives", category: "Pantry", par: 5, reorder: 2, stock: 0 },
+      { id: "ing026", item: "Peas & Carrots (frozen)", category: "Produce", par: 8, reorder: 3, stock: 0 },
+      { id: "ing027", item: "Brown Rice", category: "Pantry", par: 10, reorder: 4, stock: 0 },
+      { id: "ing028", item: "Fettuccine Noodles", category: "Pasta", par: 8, reorder: 3, stock: 0 },
+      { id: "ing029", item: "Spaghetti Noodles", category: "Pasta", par: 10, reorder: 4, stock: 0 },
+      { id: "ing030", item: "Penne Noodles", category: "Pasta", par: 8, reorder: 3, stock: 0 },
+      { id: "ing031", item: "Lasagna Sheets", category: "Pasta", par: 6, reorder: 2, stock: 0 },
+      { id: "ing032", item: "Udon Noodles", category: "Pasta", par: 8, reorder: 3, stock: 0 },
+      { id: "ing033", item: "Walleye Fillets", category: "Proteins", par: 12, reorder: 5, stock: 0 },
+      { id: "ing034", item: "Salmon Fillets", category: "Proteins", par: 10, reorder: 4, stock: 0 },
+      { id: "ing035", item: "Shrimp (peeled)", category: "Proteins", par: 8, reorder: 3, stock: 0 },
+      { id: "ing036", item: "Chicken Breasts", category: "Proteins", par: 15, reorder: 6, stock: 0 },
+      { id: "ing037", item: "Steak (sirloin)", category: "Proteins", par: 10, reorder: 4, stock: 0 },
+      { id: "ing038", item: "Steak (ribeye)", category: "Proteins", par: 8, reorder: 3, stock: 0 },
+      { id: "ing039", item: "Steak (filet mignon)", category: "Proteins", par: 6, reorder: 2, stock: 0 },
+      { id: "ing040", item: "Steak (New York strip)", category: "Proteins", par: 8, reorder: 3, stock: 0 },
+      { id: "ing041", item: "Pork Ribs", category: "Proteins", par: 10, reorder: 4, stock: 0 },
+      { id: "ing042", item: "Pork Porterhouse", category: "Proteins", par: 6, reorder: 2, stock: 0 },
+      { id: "ing043", item: "Lamb Chops", category: "Proteins", par: 8, reorder: 3, stock: 0 },
+      { id: "ing044", item: "Veal Demi Glace", category: "Condiments", par: 3, reorder: 1, stock: 0 },
+      { id: "ing045", item: "Mushroom Demi Glace", category: "Condiments", par: 3, reorder: 1, stock: 0 },
+      { id: "ing046", item: "Sautéed Onions (prepared)", category: "Condiments", par: 4, reorder: 2, stock: 0 },
+      { id: "ing047", item: "Sautéed Mushrooms (prepared)", category: "Condiments", par: 4, reorder: 2, stock: 0 },
+      { id: "ing048", item: "Bacon", category: "Proteins", par: 12, reorder: 5, stock: 0 },
+      { id: "ing049", item: "Eggs", category: "Proteins", par: 24, reorder: 12, stock: 0 },
+      { id: "ing050", item: "Avocado", category: "Produce", par: 10, reorder: 4, stock: 0 },
+      { id: "ing051", item: "Flatbread", category: "Flatbreads", par: 15, reorder: 6, stock: 0 },
+      { id: "ing052", item: "Naan Bread", category: "Flatbreads", par: 12, reorder: 5, stock: 0 },
+      { id: "ing053", item: "Baguette", category: "Breads", par: 8, reorder: 3, stock: 0 },
+      { id: "ing054", item: "Corn Tortillas", category: "Flatbreads", par: 20, reorder: 8, stock: 0 },
+      { id: "ing055", item: "Vegetable Tortillas", category: "Flatbreads", par: 15, reorder: 6, stock: 0 },
+      { id: "ing056", item: "Tortilla Strips", category: "Produce", par: 5, reorder: 2, stock: 0 },
+      { id: "ing057", item: "Pico de Gallo", category: "Condiments", par: 4, reorder: 2, stock: 0 },
+      { id: "ing058", item: "Guacamole", category: "Condiments", par: 4, reorder: 2, stock: 0 },
+      { id: "ing059", item: "BBQ Sauce", category: "Condiments", par: 3, reorder: 1, stock: 0 },
+      { id: "ing060", item: "Buffalo Sauce", category: "Condiments", par: 3, reorder: 1, stock: 0 },
+      { id: "ing061", item: "Hot Honey Sauce", category: "Condiments", par: 3, reorder: 1, stock: 0 },
+      { id: "ing062", item: "House Dry Rub", category: "Spices", par: 2, reorder: 1, stock: 0 },
+      { id: "ing063", item: "Marinara Sauce", category: "Condiments", par: 5, reorder: 2, stock: 0 },
+      { id: "ing064", item: "Lemon Garlic Butter", category: "Condiments", par: 3, reorder: 1, stock: 0 },
+      { id: "ing065", item: "Wild Mushroom Cream Sauce", category: "Condiments", par: 3, reorder: 1, stock: 0 },
+      { id: "ing066", item: "Greek Vinaigrette", category: "Dressings", par: 3, reorder: 1, stock: 0 },
+      { id: "ing067", item: "Ranch Dressing", category: "Dressings", par: 4, reorder: 2, stock: 0 },
+      { id: "ing068", item: "Blue Cheese Dressing", category: "Dressings", par: 3, reorder: 1, stock: 0 },
+      { id: "ing069", item: "Balsamic Cream", category: "Condiments", par: 3, reorder: 1, stock: 0 },
+      { id: "ing070", item: "Ginger Soy Vinaigrette", category: "Dressings", par: 3, reorder: 1, stock: 0 },
+      { id: "ing071", item: "Croutons", category: "Pantry", par: 5, reorder: 2, stock: 0 },
+      { id: "ing072", item: "Olive Oil", category: "Pantry", par: 4, reorder: 2, stock: 0 },
+      { id: "ing073", item: "Garlic", category: "Produce", par: 8, reorder: 3, stock: 0 },
+      { id: "ing074", item: "Red Peppers", category: "Produce", par: 6, reorder: 2, stock: 0 },
+      { id: "ing075", item: "Red Onions", category: "Produce", par: 8, reorder: 3, stock: 0 },
+      { id: "ing076", item: "Flatbread (½-size)", category: "Flatbreads", par: 10, reorder: 4, stock: 0 },
+      { id: "ing077", item: "Bowl of Soup (base)", category: "Prepared", par: 6, reorder: 2, stock: 0 },
+      { id: "ing078", item: "Roasted Red Pepper Sauce", category: "Condiments", par: 3, reorder: 1, stock: 0 },
+      { id: "ing079", item: "Tartar Sauce", category: "Condiments", par: 3, reorder: 1, stock: 0 },
+      { id: "ing080", item: "Chili Lime Aioli", category: "Condiments", par: 3, reorder: 1, stock: 0 },
+      { id: "ing081", item: "Thai Sweet Chili Aioli", category: "Condiments", par: 3, reorder: 1, stock: 0 },
+      { id: "ing082", item: "Chicken Wild Rice Soup (base)", category: "Prepared", par: 5, reorder: 2, stock: 0 },
+      { id: "ing083", item: "Soup of the Day (base)", category: "Prepared", par: 5, reorder: 2, stock: 0 },
+      { id: "ing084", item: "Fries (prepped)", category: "Sides", par: 15, reorder: 6, stock: 0 },
+      { id: "ing085", item: "Onion Rings (prepped)", category: "Sides", par: 10, reorder: 4, stock: 0 },
+      { id: "ing086", item: "Au Gratin Potatoes (prepped)", category: "Sides", par: 8, reorder: 3, stock: 0 },
+      { id: "ing087", item: "Stuffed Baked Potatoes (prepped)", category: "Sides", par: 8, reorder: 3, stock: 0 },
+      { id: "ing088", item: "House Salad Mix", category: "Produce", par: 6, reorder: 2, stock: 0 },
+      { id: "ing089", item: "Greek Salad Mix", category: "Produce", par: 5, reorder: 2, stock: 0 },
+      { id: "ing090", item: "Spinach (for dip)", category: "Produce", par: 4, reorder: 2, stock: 0 },
+      { id: "ing091", item: "Artichoke Hearts", category: "Produce", par: 4, reorder: 2, stock: 0 },
+      { id: "ing092", item: "Mozzarella (for flatbread)", category: "Cheeses", par: 8, reorder: 3, stock: 0 },
+      { id: "ing093", item: "Fig Balsamic Reduction", category: "Condiments", par: 3, reorder: 1, stock: 0 },
+      { id: "ing094", item: "Bruschetta Tomatoes", category: "Produce", par: 5, reorder: 2, stock: 0 },
+      { id: "ing095", item: "Red Peppers (for hummus)", category: "Produce", par: 4, reorder: 2, stock: 0 },
+      { id: "ing096", item: "Naan (for dip)", category: "Flatbreads", par: 6, reorder: 2, stock: 0 },
+      { id: "ing097", item: "Udon Noodles (for stir fry)", category: "Pasta", par: 6, reorder: 2, stock: 0 },
+      { id: "ing098", item: "Tuna (for stir fry)", category: "Proteins", par: 5, reorder: 2, stock: 0 },
+      { id: "ing099", item: "Barbacoa Beef (prepared)", category: "Proteins", par: 8, reorder: 3, stock: 0 },
+      { id: "ing100", item: "Carnitas Chicken (prepared)", category: "Proteins", par: 8, reorder: 3, stock: 0 }
+    ];
+
+    const STORAGE_KEY = "prepboard_inventory";
+
+    // Load from localStorage or use default
+    function loadInventory() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        try {
+          return JSON.parse(raw);
+        } catch {
+          console.warn("Corrupt data. Resetting to defaults.");
+        }
+      }
+      return JSON.parse(JSON.stringify(defaultData));
+    }
+
+    // Save data to localStorage
+    function saveInventory(data) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    }
+
+    // Determine status and CSS class
+    function getStatusAndClass(entry) {
+      const s = entry.stock, p = entry.par, r = entry.reorder;
+      if (s >= p)      return { status: "In Stock", css: "status-in-stock" };
+      if (s > r)       return { status: "Low",      css: "status-low-stock"  };
+      return { status: "Out",     css: "status-out-stock"  };
+    }
+
+    // Render banners (Out and Low)
+    function renderBanners(inventory) {
+      const out = [], low = [];
+      inventory.forEach(entry => {
+        const { status } = getStatusAndClass(entry);
+        if (status === "Out") out.push(entry.item);
+        if (status === "Low") low.push(entry.item);
+      });
+
+      const outBanner = document.getElementById("outBanner");
+      const lowBanner = document.getElementById("lowBanner");
+      const outItems  = document.getElementById("outItems");
+      const lowItems  = document.getElementById("lowItems");
+
+      if (out.length) {
+        outBanner.style.display = "flex";
+        outItems.innerHTML = out.map(item => `<span class="item-label">${item}</span>`).join("");
+      } else {
+        outBanner.style.display = "none";
+      }
+
+      if (low.length) {
+        lowBanner.style.display = "flex";
+        lowItems.innerHTML = low.map(item => `<span class="item-label">${item}</span>`).join("");
+      } else {
+        lowBanner.style.display = "none";
+      }
+    }
+
+    // Render the table rows, sorted by status priority
+    function renderTable() {
+      const inventory = loadInventory();
+
+      // Sort: Out → Low → In Stock
+      inventory.sort((a, b) => {
+        const order = { "Out": 0, "Low": 1, "In Stock": 2 };
+        const stA = getStatusAndClass(a).status;
+        const stB = getStatusAndClass(b).status;
+        return order[stA] - order[stB];
+      });
+
+      renderBanners(inventory);
+
+      const tbody = document.getElementById("tableBody");
+      tbody.innerHTML = ""; // Clear existing rows
+
+      inventory.forEach(entry => {
+        const { status, css } = getStatusAndClass(entry);
+        const tr = document.createElement("tr");
+        tr.classList.add(css);
+        tr.dataset.id = entry.id; // Use ID instead of index
+
+        // Create each cell
+        const cells = [
+          entry.id,
+          entry.item,
+          entry.category,
+          `<input type="number" value="${entry.par}" min="0" data-id="${entry.id}" data-field="par">`,
+          `<input type="number" value="${entry.reorder}" min="0" data-id="${entry.id}" data-field="reorder">`,
+          `<input type="number" value="${entry.stock}" min="0" data-id="${entry.id}" data-field="stock">`,
+          status
+        ];
+
+        cells.forEach(html => {
+          const td = document.createElement("td");
+          td.innerHTML = html;
+          tr.appendChild(td);
+        });
+
+        tbody.appendChild(tr);
+      });
+
+      // Attach listeners to inputs after rendering
+      document.querySelectorAll("#tableBody input[type='number']").forEach(input => {
+        input.addEventListener("input", onInputChange);
+      });
+    }
+
+    // Handle input changes
+    function onInputChange(e) {
+      const input = e.target;
+      const field = input.dataset.field;       // "par", "reorder", or "stock"
+      const id    = input.dataset.id;          // the ingredient’s ID
+      const value = parseInt(input.value) || 0;
+
+      // Find & update the correct item by ID
+      const inventory = loadInventory();
+      const idx = inventory.findIndex(ent => ent.id === id);
+      if (idx !== -1) {
+        inventory[idx][field] = value;
+        saveInventory(inventory);
+      }
+
+      // Re-render entire table to update sorting & banners
+      renderTable();
+    }
+
+    // Reset to defaults
+    document.getElementById("resetBtn").addEventListener("click", () => {
+      if (confirm("Are you sure you want to reset ALL stock, par, and reorder values to defaults?")) {
+        localStorage.removeItem(STORAGE_KEY);
+        renderTable();
+      }
+    });
+
+    // Initial render
+    renderTable();
+  </script>
+</body>
+</html>
